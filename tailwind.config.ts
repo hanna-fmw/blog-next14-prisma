@@ -13,11 +13,14 @@ const config: Config = {
 				'hero-content-color': '#e5e5e5',
 				'navbar-link-color': '#e5e5e5',
 				'navbar-link-hover-color': '#f5f5f5',
-        "tag-color": "#e5e5e5",
+				'tag-color': '#e5e5e5',
 			},
 			backgroundImage: {
-				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+				'hero-bg': "url('../public/hero-image.png')",
+			},
+			fontFamily: {
+				spartan: ['League Spartan', 'sans-serif'],
+				lora: ['Lora', 'sans-serif'],
 			},
 		},
 	},

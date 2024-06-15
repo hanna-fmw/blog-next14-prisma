@@ -7,7 +7,7 @@ const Navbar = () => {
 		<div
 			className='w-screen flex justify-between items-center px-[20px] md:px-[70px] h-16 md:h-[80px]'
 			style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
-			<h2 className='text-sm md:text-[20px]  font-semibold text-navbar-link-color hover:text-navbar-link-hover-color'>
+			<h2 className='font-spartan text-sm md:text-[20px] font-semibold text-navbar-link-color hover:text-navbar-link-hover-color'>
 				BLOG
 			</h2>
 
