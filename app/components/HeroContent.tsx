@@ -4,7 +4,7 @@ import Tag from './Tag'
 const HeroContent = () => {
 	return (
 		<div className='absolute bottom-[20%] w-1/2 d:w-1/3 px-[20px] md:px-[70px]'>
-			<Tag />
+			<Tag tag='travel' />
 			<h1 className='font-lora text-hero-content-color text-2xl md:text-4xl my-6 mb-2'>
 				Richird Norton photorealistic
 				<br /> rendering as real photos
