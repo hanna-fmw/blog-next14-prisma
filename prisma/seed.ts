@@ -12,16 +12,31 @@ async function main() {
 	const userCount = await prisma.user.count()
 	console.log(`Number of users after delete: ${userCount}`)
 
-	//Create a user with a new post
+	//Create a user with a new post (or upsert: update if exists, else create)
 	await prisma.user.create({
 		data: {
 			name: 'Al',
 			email: 'al@gmail.com',
 			posts: {
 				create: {
-					title: 'Post 1',
-					content: 'Content 1',
-					tags: ['red', 'green', 'blue'],
+					title: 'Going to USA',
+					content:
+						'The United States is a diverse nation known for its cultural influence, economic power, and technological innovation.',
+					tags: ['nature', 'usa'],
+				},
+			},
+		},
+	})
+	await prisma.user.create({
+		data: {
+			name: 'Anna',
+			email: 'anna@gmail.com',
+			posts: {
+				create: {
+					title: 'Going to the Costa Rica',
+					content:
+						'Costa Rica is known for its rich biodiversity, stunning natural landscapes, and commitment to environmental conservation.',
+					tags: ['nature', 'adventure', 'costa rica'],
 				},
 			},
 		},

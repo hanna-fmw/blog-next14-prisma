@@ -22,6 +22,7 @@ model Post {
   date      DateTime @default(now())
   author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
   authorId  String
+  image     String @default("https://unsplash.com/photos/black-concrete-road-surrounded-by-brown-rocks-tMzCrBkM99Y")
 }
 
 model User {
