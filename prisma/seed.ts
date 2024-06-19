@@ -1,52 +1,36 @@
-//run this seed script with npx ts-node seed.ts
+//run this seed script with npx prisma db seed
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 async function main() {
-  const alice = await prisma.user.upsert({
-    where: { email: 'alice@prisma.io' },
-    update: {},
-    create: {
-      email: 'alice@prisma.io',
-      name: 'Alice',
-      posts: {
-        create: {
-          title: 'Check out Prisma with Next.js',
-          content: 'https://www.prisma.io/nextjs',
-          published: true,
-        },
-      },
-    },
-  })
-  const bob = await prisma.user.upsert({
-    where: { email: 'bob@prisma.io' },
-    update: {},
-    create: {
-      email: 'bob@prisma.io',
-      name: 'Bob',
-      posts: {
-        create: [
-          {
-            title: 'Follow Prisma on Twitter',
-            content: 'https://twitter.com/prisma',
-            published: true,
-          },
-          {
-            title: 'Follow Nexus on Twitter',
-            content: 'https://twitter.com/nexusgql',
-            published: true,
-          },
-        ],
-      },
-    },
-  })
-  console.log({ alice, bob })
+	//Delete all posts
+	await prisma.post.deleteMany()
+	const postCount = await prisma.post.count()
+	console.log(`Number of posts after delete: ${postCount}`)
+
+	//Delete all users
+	await prisma.user.deleteMany()
+	const userCount = await prisma.user.count()
+	console.log(`Number of users after delete: ${userCount}`)
+
+	//Create a user with a new post
+	await prisma.user.create({
+		data: {
+			name: 'Al',
+			email: 'al@gmail.com',
+			posts: {
+				create: {
+					title: 'Post 1',
+					content: 'Content 1',
+					tags: ['red', 'green', 'blue'],
+				},
+			},
+		},
+	})
 }
 main()
-  .then(async () => {
-    await prisma.$disconnect()
-  })
-  .catch(async (e) => {
-    console.error(e)
-    await prisma.$disconnect()
-    process.exit(1)
-  })
+	.catch((e) => {
+		throw e
+	})
+	.finally(async () => {
+		await prisma.$disconnect()
+	})

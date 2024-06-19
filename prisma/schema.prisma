@@ -20,7 +20,7 @@ model Post {
   tags      String[]
   published Boolean  @default(false)
   date      DateTime @default(now())
-  author    User     @relation(fields: [authorId], references: [id])
+  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
   authorId  String
 }
 
