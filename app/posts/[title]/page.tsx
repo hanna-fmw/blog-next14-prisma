@@ -2,15 +2,15 @@ import React from 'react'
 
 type Props = {
 	params: {
-		postTitle: string
+		title: string
 	}
 }
 
-const PostPage = ({ params: { postTitle } }: Props) => {
+const PostPage = ({ params: { title } }: Props) => {
 	return (
 		<main>
 			<div>PostPage</div>
-			<div>Post Title: {postTitle}</div>
+			<div>Post Title: {title}</div>
 		</main>
 	)
 }

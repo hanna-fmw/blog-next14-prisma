@@ -13,6 +13,8 @@ async function main() {
 	console.log(`Number of users after delete: ${userCount}`)
 
 	//Create a user with a new post (or upsert: update if exists, else create)
+	//My User model has name (string), email (string), and posts (array), so I
+	//first create a user, then inside the same query I create a post for that user
 	await prisma.user.create({
 		data: {
 			name: 'Al',

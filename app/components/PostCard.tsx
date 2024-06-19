@@ -4,13 +4,13 @@ import Link from 'next/link'
 
 type Props = {
 	img: string
-	postTitle: string
+	title: string
 	description: string
 }
 
-const PostCard = ({ img, postTitle, description }: Props) => {
+const PostCard = ({ img, title, description }: Props) => {
 	return (
-		<Link href={`/${postTitle}`}>
+		<Link href={`/${title}`}>
 			<section className='cursor-pointer'>
 				<div className='mt-12'>
 					<div>
@@ -22,7 +22,7 @@ const PostCard = ({ img, postTitle, description }: Props) => {
 							className='rounded-[5px] max-w-1/2 md:max-w-[20vw]'
 						/>
 					</div>
-					<h2 className='text-xl font-semibold mt-6'>{postTitle}</h2>
+					<h2 className='text-xl font-semibold mt-6'>{title}</h2>
 					<p className='text-gray-500'>{description}</p>
 				</div>
 			</section>
