@@ -22,8 +22,12 @@ async function main() {
 			posts: {
 				create: {
 					title: 'Going to USA',
-					content:
+					slug: 'going-to-usa',
+					subheading:
 						'The United States is a diverse nation known for its cultural influence, economic power, and technological innovation.',
+					content:
+						"The United States is a vast and diverse country, home to a wide range of landscapes, cultures, and attractions. From the bustling streets of New York City to the serene beauty of the Grand Canyon, there's something for everyone in the USA. Whether you're exploring the historic monuments of Washington, D.C., sampling the cuisine of New Orleans, or hiking in the Rocky Mountains, you're sure to be amazed by the country's natural beauty and cultural richness. With its iconic landmarks, world-class museums, and vibrant cities, the USA is a destination that never fails to impress.",
+
 					tags: ['nature', 'usa'],
 				},
 			},
@@ -35,9 +39,12 @@ async function main() {
 			email: 'anna@gmail.com',
 			posts: {
 				create: {
-					title: 'Going to the Costa Rica',
-					content:
+					title: 'Going to Costa Rica',
+					slug: 'going-to-costa-rica',
+					subheading:
 						'Costa Rica is known for its rich biodiversity, stunning natural landscapes, and commitment to environmental conservation.',
+					content:
+						"Costa Rica is a small country in Central America known for its lush jungles, stunning beaches, and diverse wildlife. It's a popular destination for eco-tourists and adventure seekers, offering a wide range of outdoor activities such as hiking, surfing, and zip-lining. Whether you're exploring the cloud forests of Monteverde, relaxing on the beaches of Manuel Antonio, or soaking in the hot springs of Arenal Volcano, Costa Rica has something for everyone. With its friendly locals, delicious cuisine, and laid-back vibe, it's no wonder that Costa Rica is often referred to as the happiest country in the world.",
 					tags: ['nature', 'adventure', 'costa rica'],
 				},
 			},

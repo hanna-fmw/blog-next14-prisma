@@ -12,7 +12,7 @@ import Link from 'next/link'
 
 export default async function PostsPage() {
 	const posts = await prisma.post.findMany({
-		include: { author: true }, //inlude author to access User model
+		include: { author: true }, //include author to access User model
 	})
 
 	const postCount = await prisma.post.count()
@@ -28,7 +28,7 @@ export default async function PostsPage() {
 				<h1 className='mt-12 md:mt-20'>Posts ({postCount})</h1>
 				<div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6'>
 					{posts.map((post) => (
-						<Link key={post.id} href={`/post/${post.title}`}>
+						<Link key={post.id} href={`/posts/${post.slug}`}>
 							<h3>{post.title}</h3>
 							<div>
 								<span className='font-medium'>Tags: </span>
@@ -40,7 +40,7 @@ export default async function PostsPage() {
 									)
 								})}
 							</div>
-							<div>{post.content}</div>
+							<div>{post.subheading}</div>
 							<Image src={post.image} alt='Post Image' width={300} height={200} />
 							<div>Author: {post.author.name}</div>
 						</Link>
