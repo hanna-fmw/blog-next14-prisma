@@ -14,13 +14,15 @@ const config: Config = {
 				'navbar-link-color': '#e5e5e5',
 				'navbar-link-hover-color': '#f5f5f5',
 				'tag-color': '#e5e5e5',
+				'date-color': '#6C757D',
 			},
 			backgroundImage: {
 				'hero-bg': "url('../public/hero-image.png')",
 			},
 			fontFamily: {
-				spartan: ['League Spartan', 'sans-serif'],
-				lora: ['Lora', 'sans-serif'],
+				roboto: ['var(--font-roboto)', 'sans-serif'],
+				spartan: ['var(--font-spartan)', 'sans-serif'],
+				lora: ['var(--font-lora)', 'sans-serif'],
 			},
 		},
 	},
