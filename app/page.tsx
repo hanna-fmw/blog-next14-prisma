@@ -1,10 +1,14 @@
 import React from 'react'
 import PostsPage from './posts/page'
 
-const Home = () => {
+type Props = {
+	searchParams: { tagFilter: string }
+}
+
+const Home = ({ searchParams }: Props) => {
 	return (
 		<>
-			<PostsPage />
+			<PostsPage searchParams={searchParams} />
 		</>
 	)
 }
