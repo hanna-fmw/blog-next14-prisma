@@ -1,29 +1,58 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import Tag from './Tag'
 
-type Props = {
-	img: string
-	title: string
-	description: string
+type Post = {
+	post: {
+		id: string
+		slug: string
+		image: string
+		title: string
+		subheading: string
+		content: string
+		tags: string[]
+		date: Date
+		author: User
+	}
+}
+type User = {
+	id: string
+	email: string
+	name: string
+	posts: Post[]
 }
 
-const PostCard = ({ img, title, description }: Props) => {
+const PostCard = ({ post }: Post) => {
 	return (
-		<Link href={`/${title}`}>
+		<Link key={post.id} href={`/posts/${post.slug}`}>
 			<section className='cursor-pointer'>
-				<div className='mt-12'>
-					<div>
+				<div className='mt-8'>
+					{/* <div>
+						<span className='font-medium'>Tags: </span>
+						{post.tags.map((tag: string, i) => {
+							return (
+								<>
+									<span key={i}>{tag}&nbsp;</span>
+								</>
+							)
+						})}
+					</div> */}
+					<div className='relative'>
+						<div className='absolute top-3 right-3'>
+							<Tag tag='travel' />
+						</div>
 						<Image
-							src={img}
+							src={post.image}
 							alt='Post Image'
-							width={300}
+							width={250}
 							height={200}
-							className='rounded-[5px] max-w-1/2 md:max-w-[20vw]'
+							className='object-cover w-[300px] h-[250px] rounded-md'
 						/>
 					</div>
-					<h2 className='text-xl font-semibold mt-6'>{title}</h2>
-					<p className='text-gray-500'>{description}</p>
+					<div className='font-lora text-date-color text-xs mt-3'>{`${post.date.getFullYear()}.${(post.date.getMonth() + 1).toString().padStart(2, '0')}.${post.date.getDate()}`}</div>
+					<h2 className='font-lora text-xl font-semibold mt-6'>{post.title}</h2>
+					<p className='text-gray-500'>{post.subheading}</p>
 				</div>
 			</section>
 		</Link>
