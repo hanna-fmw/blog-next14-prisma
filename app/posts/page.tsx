@@ -31,7 +31,7 @@ type Props = {
 	searchParams: { tagFilter: string }
 }
 
-const availableTags = ['nature', 'adventure']
+const availableTags = ['nature', 'adventure', 'beach', 'city', 'culture']
 
 const PostsPage = async ({ searchParams: { tagFilter } }: Props) => {
 	console.log('these are searchParams', tagFilter)
