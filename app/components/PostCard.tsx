@@ -28,19 +28,11 @@ const PostCard = ({ post }: Post) => {
 		<Link key={post.id} href={`/posts/${post.slug}`}>
 			<section className='cursor-pointer'>
 				<div className='mt-8'>
-					{/* <div>
-						<span className='font-medium'>Tags: </span>
-						{post.tags.map((tag: string, i) => {
-							return (
-								<>
-									<span key={i}>{tag}&nbsp;</span>
-								</>
-							)
-						})}
-					</div> */}
 					<div className='relative'>
 						<div className='absolute top-3 right-3'>
-							<Tag tag='travel' />
+							{post.tags.map((tag: string, i) => {
+								return <Tag key={i} tag={tag} />
+							})}
 						</div>
 						<Image
 							src={post.image}
