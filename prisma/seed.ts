@@ -47,7 +47,7 @@ async function main() {
 						'Costa Rica is known for its rich biodiversity, stunning natural landscapes, and commitment to environmental conservation.',
 					content:
 						"Costa Rica is a small country in Central America known for its lush jungles, stunning beaches, and diverse wildlife. It's a popular destination for eco-tourists and adventure seekers, offering a wide range of outdoor activities such as hiking, surfing, and zip-lining. Whether you're exploring the cloud forests of Monteverde, relaxing on the beaches of Manuel Antonio, or soaking in the hot springs of Arenal Volcano, Costa Rica has something for everyone. With its friendly locals, delicious cuisine, and laid-back vibe, it's no wonder that Costa Rica is often referred to as the happiest country in the world.",
-					tags: ['nature', 'adventure'],
+					tags: ['beach', 'nature', 'adventure'],
 					image:
 						'/images/embracing-pura-vida-a-journey-through-costa-ricas-natural-wonders/hero.png',
 				},
@@ -84,8 +84,81 @@ async function main() {
 							'Dubai dazzles with its futuristic skyscrapers, luxury shopping, and desert adventures.',
 						content:
 							"Dubai, the jewel of the UAE, is renowned for its iconic landmarks such as the Burj Khalifa, the world's tallest building, and the Palm Jumeirah, an artificial archipelago. Visitors can experience the blend of traditional Emirati culture and modern cosmopolitanism at the Dubai Museum, Sheikh Zayed Grand Mosque, and bustling souks. Indulge in luxury shopping at the Dubai Mall, enjoy desert safaris with thrilling dune bashing, or relax on pristine beaches along the Arabian Gulf. With its vibrant nightlife, gourmet dining, and year-round sunshine, Dubai offers a unique and unforgettable travel experience.",
-						tags: ['city', 'luxury', 'adventure'],
+						tags: ['city', 'culture'],
 						image: '/images/exploring-dubai-a-fusion-of-modernity-and-tradition/hero.jpg',
+					},
+				},
+			},
+		}),
+		await prisma.user.create({
+			data: {
+				name: 'Linnea',
+				email: 'linnea@gmail.com',
+				posts: {
+					create: {
+						title: 'Discovering Bali: Paradise Islands and Cultural Riches',
+						slug: 'discovering-bali-paradise-islands-and-cultural-riches',
+						subheading:
+							'Bali captivates with its serene beaches, lush rice terraces, and vibrant culture.',
+						content:
+							"Bali, known as the 'Island of the Gods,' offers a diverse range of experiences from pristine beaches like Kuta and Seminyak to lush landscapes in Ubud. Explore ancient temples such as Tanah Lot and Uluwatu, witness traditional Balinese dance performances, or trek through terraced rice fields in Tegallalang. Indulge in Balinese cuisine, visit local markets, or unwind with yoga and spa retreats. With its warm hospitality, spiritual ambiance, and natural beauty, Bali enchants travelers seeking both relaxation and adventure.",
+						tags: ['beach'],
+						image: '/images/discovering-bali-paradise-islands-and-cultural-riches/hero.jpg',
+					},
+				},
+			},
+		}),
+		await prisma.user.create({
+			data: {
+				name: 'Julien',
+				email: 'julien@gmail.com',
+				posts: {
+					create: {
+						title: 'Paris: City of Lights and Romance',
+						slug: 'paris-city-of-lights-and-romance',
+						subheading:
+							'Paris enchants with its iconic landmarks, artistic treasures, and gourmet delights.',
+						content:
+							"Paris, the capital of France, is synonymous with romance and elegance. Marvel at the Eiffel Tower's beauty, explore the Louvre Museum's vast art collection, and stroll along the Seine River. Visit Notre-Dame Cathedral, Montmartre's artistic streets, and the grand Champs-Élysées. Indulge in French cuisine at cozy bistros, sample pastries at patisseries, and savor wine at sidewalk cafes. Experience the city's fashion boutiques, vibrant markets, and lively nightlife. With its timeless charm and cultural allure, Paris captivates visitors from around the world.",
+						tags: ['city', 'culture'],
+						image: '/images/paris-city-of-lights-and-romance/hero.jpg',
+					},
+				},
+			},
+		}),
+		await prisma.user.create({
+			data: {
+				name: 'Carlos',
+				email: 'carlos@gmail.com',
+				posts: {
+					create: {
+						title: 'Exploring Rio de Janeiro: Beaches, Culture, and Vibrant City Life',
+						slug: 'exploring-rio-de-janeiro-beaches-culture-and-vibrant-city-life',
+						subheading:
+							'Rio de Janeiro captivates with its stunning beaches, rich cultural heritage, and lively urban atmosphere.',
+						content:
+							"Rio de Janeiro, located in Brazil, is famous for its picturesque beaches such as Copacabana and Ipanema, where visitors can soak up the sun and enjoy water sports. Explore iconic landmarks like the Christ the Redeemer statue and Sugarloaf Mountain for panoramic views of the city. Immerse yourself in the city's vibrant culture with samba music, Carnival celebrations, and historic neighborhoods like Santa Teresa. Indulge in Brazilian cuisine at local restaurants, visit museums and art galleries, and experience the energy of Rio's nightlife. With its blend of natural beauty and urban allure, Rio de Janeiro offers a memorable travel experience.",
+						tags: ['beach', 'city', 'culture'],
+						image:
+							'/images/exploring-rio-de-janeiro-beaches-culture-and-vibrant-city-life/hero.jpg',
+					},
+				},
+			},
+		}),
+		await prisma.user.create({
+			data: {
+				name: 'David',
+				email: 'david@gmail.com',
+				posts: {
+					create: {
+						title: 'Exploring Marrakech: Culture, Adventure, and City Splendor',
+						slug: 'exploring-marrakech-culture-adventure-and-city-splendor',
+						subheading:
+							'Marrakech enchants with its exotic culture, thrilling adventures, and bustling cityscape.',
+						content:
+							'Marrakech, located in Morocco, is a vibrant city steeped in history and culture. Explore the maze-like streets of the Medina, visit the iconic Jemaa el-Fnaa square with its bustling markets and street performers, and discover architectural marvels like the Bahia Palace and Koutoubia Mosque. Immerse yourself in Moroccan cuisine at local eateries and experience traditional hammams. For adventurers, nearby Atlas Mountains offer hiking and trekking opportunities, while camel rides and desert excursions in the nearby Sahara provide unforgettable experiences. With its blend of ancient charm and modern vitality, Marrakech promises a memorable travel experience.',
+						tags: ['city', 'culture'],
+						image: '/images/exploring-marrakech-culture-adventure-and-city-splendor/hero.jpg',
 					},
 				},
 			},
