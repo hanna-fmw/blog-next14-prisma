@@ -6,21 +6,22 @@ import Tag from './Tag'
 type Post = {
 	post: {
 		id: string
-		slug: string
-		image: string
 		title: string
+		slug: string
 		subheading: string
 		content: string
 		tags: string[]
+		published: boolean
 		date: Date
 		author: User
+		authorId: string
+		image: string
 	}
 }
 type User = {
 	id: string
 	email: string
 	name: string
-	posts: Post[]
 }
 
 const PostCard = ({ post }: Post) => {
@@ -39,12 +40,12 @@ const PostCard = ({ post }: Post) => {
 							alt='Post Image'
 							width={250}
 							height={200}
-							className='object-cover w-[300px] h-[250px] rounded-md'
+							className='object-cover w-[45vw] h-[30vh] md:w-[35vw] md:h-[35vh] lg:w-[25vw] lg:h-[35vh] rounded-md'
 						/>
 					</div>
 					<div className='font-lora text-date-color text-xs mt-3'>{`${post.date.getFullYear()}.${(post.date.getMonth() + 1).toString().padStart(2, '0')}.${post.date.getDate()}`}</div>
 					<h2 className='font-lora text-xl font-semibold mt-6'>{post.title}</h2>
-					<p className='text-gray-500'>{post.subheading}</p>
+					<p className='text-xs md:text-sm text-gray-500'>{post.subheading}</p>
 				</div>
 			</section>
 		</Link>
