@@ -1,6 +1,7 @@
-import Image from 'next/image'
 import prisma from '@/lib/db'
 import Link from 'next/link'
+import Navbar from '@/app/components/Navbar'
+import HeroContent from '@/app/components/HeroContent'
 
 type Props = {
 	params: {
@@ -14,35 +15,42 @@ export default async function PostPage({ params: { slug } }: Props) {
 		include: { author: true },
 	})
 
+	let image = post?.image ? post.image : '/bridge-and-beach.jpg'
+
 	return (
 		<main>
-			<section className='w-screen px-[20px] md:px-[70px]'>
-				<div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6'>
-					<Link href='/'>
-						<h3>{post?.title}</h3>
-						<div>
-							<span className='font-medium'>Tags: </span>
-							{post?.tags.map((tag, i) => {
-								return (
-									<>
-										<span key={i}>{tag}&nbsp;</span>
-									</>
-								)
-							})}
-						</div>
-						<div>{post?.subheading}</div>
-						<Image
-							src={post?.image ? post.image : 'no image'}
-							alt='Post Image'
-							width={300}
-							height={200}
-						/>
-
-						<div>{post?.content}</div>
-						<div>Author: {post?.author.name}</div>
-					</Link>
-				</div>
+			<section
+				style={{
+					backgroundImage: `url('${image}')`,
+					backgroundSize: 'cover',
+					backgroundPosition: 'center',
+					backgroundRepeat: 'no-repeat',
+				}}
+				className='w-screen min-w-full h-[70vh] relative'>
+				<Navbar />
+				<HeroContent
+					postTitle={post?.title ?? 'Travel around the World'}
+					subheading={post?.subheading}
+				/>
 			</section>
+
+			<div className='flex flex-col'>
+				<h3>{post?.title}</h3>
+				<div>
+					<span className='font-medium'>Tags: </span>
+					{post?.tags.map((tag, i) => {
+						return (
+							<>
+								<span key={i}>{tag}&nbsp;</span>
+							</>
+						)
+					})}
+				</div>
+				<div>{post?.subheading}</div>
+				<div>{post?.content}</div>
+				<div>Author: {post?.author.name}</div>
+				<Link href='/'>Back to Home</Link>
+			</div>
 		</main>
 	)
 }
