@@ -16,7 +16,7 @@ datasource db {
 model Post {
   id        String   @id @default(cuid())
   title     String
-  slug      String?  @unique  
+  slug      String  @unique  
   subheading String
   content   String
   tags      String[]
