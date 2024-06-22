@@ -1,6 +1,7 @@
 //run this seed script with npx prisma db seed
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
+
 async function main() {
 	//Delete all posts
 	await prisma.post.deleteMany()
@@ -12,25 +13,23 @@ async function main() {
 	const userCount = await prisma.user.count()
 	console.log(`Number of users after delete: ${userCount}`)
 
-	//Create a user with a new post (or upsert: update if exists, else create)
-	//My User model has name (string), email (string), and posts (array), so I
-	//first create a user, then inside the same query I create a post for that user
+	//Create users
 	await prisma.user.create({
 		data: {
 			name: 'Sophie',
 			email: 'sophie@gmail.com',
 			posts: {
 				create: {
-					title: "Exploring the Melting Pot: A Journey Through America's Landscapes and Cultures",
+					title: "A Journey Through America's Landscapes and Cultures",
 					slug: 'exploring-the-melting-pot-a-journey-through-americas-landscapes-and-cultures',
 					subheading:
 						'The United States is a diverse nation known for its cultural influence, economic power, and technological innovation.',
 					content:
 						"The United States is a vast and diverse country, home to a wide range of landscapes, cultures, and attractions. From the bustling streets of New York City to the serene beauty of the Grand Canyon, there's something for everyone in the USA. Whether you're exploring the historic monuments of Washington, D.C., sampling the cuisine of New Orleans, or hiking in the Rocky Mountains, you're sure to be amazed by the country's natural beauty and cultural richness. With its iconic landmarks, world-class museums, and vibrant cities, the USA is a destination that never fails to impress.",
 
-					tags: ['nature'],
+					tags: ['nature', 'culture'],
 					image:
-						'/images/exploring-the-melting-pot-a-journey-through-americas-landscapes-and-cultures/hero.png',
+						'/images/exploring-the-melting-pot-a-journey-through-americas-landscapes-and-cultures/hero.jpg',
 				},
 			},
 		},
@@ -41,15 +40,15 @@ async function main() {
 			email: 'mimmi@gmail.com',
 			posts: {
 				create: {
-					title: 'Embracing Pura Vida: A Journey Through Costa Rica&apos;s Natural Wonders',
+					title: 'Exploring Costa Rica´s Natural Wonders',
 					slug: 'embracing-pura-vida-a-journey-through-costa-ricas-natural-wonders',
 					subheading:
 						'Costa Rica is known for its rich biodiversity, stunning natural landscapes, and commitment to environmental conservation.',
 					content:
 						"Costa Rica is a small country in Central America known for its lush jungles, stunning beaches, and diverse wildlife. It's a popular destination for eco-tourists and adventure seekers, offering a wide range of outdoor activities such as hiking, surfing, and zip-lining. Whether you're exploring the cloud forests of Monteverde, relaxing on the beaches of Manuel Antonio, or soaking in the hot springs of Arenal Volcano, Costa Rica has something for everyone. With its friendly locals, delicious cuisine, and laid-back vibe, it's no wonder that Costa Rica is often referred to as the happiest country in the world.",
-					tags: ['beach', 'nature', 'adventure'],
+					tags: ['nature', 'adventure'],
 					image:
-						'/images/embracing-pura-vida-a-journey-through-costa-ricas-natural-wonders/hero.png',
+						'/images/embracing-pura-vida-a-journey-through-costa-ricas-natural-wonders/hero.jpg',
 				},
 			},
 		},
@@ -60,7 +59,7 @@ async function main() {
 				email: 'robin@gmail.com',
 				posts: {
 					create: {
-						title: 'Discovering Kyoto: Exploring Japan&apos;s Cultural Heart',
+						title: 'Discovering Kyoto: Exploring Japan´s Cultural Heart',
 						slug: 'discovering-kyoto-exploring-japans-cultural-heart',
 						subheading:
 							'Kyoto is a city steeped in history, known for its temples, traditional tea ceremonies, and beautiful gardens.',
@@ -138,7 +137,7 @@ async function main() {
 							'Rio de Janeiro captivates with its stunning beaches, rich cultural heritage, and lively urban atmosphere.',
 						content:
 							"Rio de Janeiro, located in Brazil, is famous for its picturesque beaches such as Copacabana and Ipanema, where visitors can soak up the sun and enjoy water sports. Explore iconic landmarks like the Christ the Redeemer statue and Sugarloaf Mountain for panoramic views of the city. Immerse yourself in the city's vibrant culture with samba music, Carnival celebrations, and historic neighborhoods like Santa Teresa. Indulge in Brazilian cuisine at local restaurants, visit museums and art galleries, and experience the energy of Rio's nightlife. With its blend of natural beauty and urban allure, Rio de Janeiro offers a memorable travel experience.",
-						tags: ['beach', 'city', 'culture'],
+						tags: ['beach', 'city'],
 						image:
 							'/images/exploring-rio-de-janeiro-beaches-culture-and-vibrant-city-life/hero.jpg',
 					},
@@ -147,18 +146,19 @@ async function main() {
 		}),
 		await prisma.user.create({
 			data: {
-				name: 'David',
-				email: 'david@gmail.com',
+				name: 'Elena',
+				email: 'elena@example.com',
 				posts: {
 					create: {
-						title: 'Exploring Marrakech: Culture, Adventure, and City Splendor',
-						slug: 'exploring-marrakech-culture-adventure-and-city-splendor',
+						title: 'Patagonia: Snow-Capped Peaks, Glaciers, and Untamed Wilderness',
+						slug: 'exploring-patagonia-snow-capped-peaks-glaciers-and-untamed-wilderness',
 						subheading:
-							'Marrakech enchants with its exotic culture, thrilling adventures, and bustling cityscape.',
+							'Patagonia enchants with its dramatic landscapes, pristine glaciers, and diverse wildlife.',
 						content:
-							'Marrakech, located in Morocco, is a vibrant city steeped in history and culture. Explore the maze-like streets of the Medina, visit the iconic Jemaa el-Fnaa square with its bustling markets and street performers, and discover architectural marvels like the Bahia Palace and Koutoubia Mosque. Immerse yourself in Moroccan cuisine at local eateries and experience traditional hammams. For adventurers, nearby Atlas Mountains offer hiking and trekking opportunities, while camel rides and desert excursions in the nearby Sahara provide unforgettable experiences. With its blend of ancient charm and modern vitality, Marrakech promises a memorable travel experience.',
-						tags: ['city', 'culture'],
-						image: '/images/exploring-marrakech-culture-adventure-and-city-splendor/hero.jpg',
+							"Patagonia, spanning across Chile and Argentina, offers a breathtaking winter wonderland. Explore snow-capped peaks of the Andes Mountains, home to towering glaciers such as Perito Moreno and Grey. Trek through pristine national parks like Torres del Paine and Los Glaciares, marveling at turquoise lakes and jagged peaks. Discover unique wildlife, including guanacos, pumas, and Andean condors, in their natural habitat. Experience thrilling outdoor activities like hiking, skiing, and ice climbing amidst Patagonia's untamed wilderness. Immerse yourself in local culture, enjoying traditional cuisine and hospitality in charming towns like El Calafate and Puerto Natales. Patagonia's blend of snow-capped peaks, glaciers, and untamed wilderness promises an unforgettable adventure.",
+						tags: ['nature', 'adventure'],
+						image:
+							'/images/exploring-patagonia-snow-capped-peaks-glaciers-and-untamed-wilderness/hero.jpg',
 					},
 				},
 			},
