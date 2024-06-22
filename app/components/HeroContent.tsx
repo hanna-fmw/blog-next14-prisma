@@ -1,18 +1,20 @@
 import React from 'react'
 import Tag from './Tag'
 
-const HeroContent = () => {
+type Props = {
+	postTitle: string
+	subheading?: string
+	tag?: string
+}
+
+const HeroContent = ({ postTitle, subheading, tag }: Props) => {
 	return (
-		<div className='absolute bottom-[20%] w-1/2 md:w-1/3 px-[20px] md:px-[70px]'>
-			<Tag tag='travel' />
+		<div className='absolute bottom-[10%] w-1/2 md:w-1/2 lg:w-1/3 px-[20px] md:px-[70px]'>
+			<Tag tag={tag} />
 			<h1 className='font-lora text-hero-content-color text-2xl md:text-4xl my-6 mb-2'>
-				Richird Norton photorealistic
-				<br /> rendering as real photos
+				{postTitle}
 			</h1>
-			<p className='font-lora text-hero-content-color text-sm md:text-md'>
-				Progressively incentivize cooperative systems through technically sound functionalities. The
-				credibly productivate seamless data.
-			</p>
+			<p className='font-lora text-hero-content-color text-sm md:text-base'>{subheading}</p>
 		</div>
 	)
 }
