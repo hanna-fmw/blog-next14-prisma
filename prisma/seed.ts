@@ -21,15 +21,14 @@ async function main() {
 			posts: {
 				create: {
 					title: "A Journey Through America's Landscapes and Cultures",
-					slug: 'exploring-the-melting-pot-a-journey-through-americas-landscapes-and-cultures',
+					slug: 'a-journey-through-americas-landscapes-and-cultures',
 					subheading:
 						'The United States is a diverse nation known for its cultural influence, economic power, and technological innovation.',
 					content:
 						"The United States is a vast and diverse country, home to a wide range of landscapes, cultures, and attractions. From the bustling streets of New York City to the serene beauty of the Grand Canyon, there's something for everyone in the USA. Whether you're exploring the historic monuments of Washington, D.C., sampling the cuisine of New Orleans, or hiking in the Rocky Mountains, you're sure to be amazed by the country's natural beauty and cultural richness. With its iconic landmarks, world-class museums, and vibrant cities, the USA is a destination that never fails to impress.",
 
 					tags: ['nature', 'culture'],
-					image:
-						'/images/exploring-the-melting-pot-a-journey-through-americas-landscapes-and-cultures/hero.jpg',
+					image: '/images/a-journey-through-americas-landscapes-and-cultures/hero.jpg',
 				},
 			},
 		},
@@ -41,14 +40,13 @@ async function main() {
 			posts: {
 				create: {
 					title: 'Exploring Costa Rica´s Natural Wonders',
-					slug: 'embracing-pura-vida-a-journey-through-costa-ricas-natural-wonders',
+					slug: 'exploring-costa-ricas-natural-wonders',
 					subheading:
 						'Costa Rica is known for its rich biodiversity, stunning natural landscapes, and commitment to environmental conservation.',
 					content:
 						"Costa Rica is a small country in Central America known for its lush jungles, stunning beaches, and diverse wildlife. It's a popular destination for eco-tourists and adventure seekers, offering a wide range of outdoor activities such as hiking, surfing, and zip-lining. Whether you're exploring the cloud forests of Monteverde, relaxing on the beaches of Manuel Antonio, or soaking in the hot springs of Arenal Volcano, Costa Rica has something for everyone. With its friendly locals, delicious cuisine, and laid-back vibe, it's no wonder that Costa Rica is often referred to as the happiest country in the world.",
 					tags: ['nature', 'adventure'],
-					image:
-						'/images/embracing-pura-vida-a-journey-through-costa-ricas-natural-wonders/hero.jpg',
+					image: '/images/exploring-costa-ricas-natural-wonders/hero.jpg',
 				},
 			},
 		},
@@ -151,14 +149,14 @@ async function main() {
 				posts: {
 					create: {
 						title: 'Patagonia: Snow-Capped Peaks, Glaciers, and Untamed Wilderness',
-						slug: 'exploring-patagonia-snow-capped-peaks-glaciers-and-untamed-wilderness',
+						slug: 'patagonia-snow-capped-peaks-glaciers-and-untamed-wilderness',
 						subheading:
 							'Patagonia enchants with its dramatic landscapes, pristine glaciers, and diverse wildlife.',
 						content:
 							"Patagonia, spanning across Chile and Argentina, offers a breathtaking winter wonderland. Explore snow-capped peaks of the Andes Mountains, home to towering glaciers such as Perito Moreno and Grey. Trek through pristine national parks like Torres del Paine and Los Glaciares, marveling at turquoise lakes and jagged peaks. Discover unique wildlife, including guanacos, pumas, and Andean condors, in their natural habitat. Experience thrilling outdoor activities like hiking, skiing, and ice climbing amidst Patagonia's untamed wilderness. Immerse yourself in local culture, enjoying traditional cuisine and hospitality in charming towns like El Calafate and Puerto Natales. Patagonia's blend of snow-capped peaks, glaciers, and untamed wilderness promises an unforgettable adventure.",
 						tags: ['nature', 'adventure'],
 						image:
-							'/images/exploring-patagonia-snow-capped-peaks-glaciers-and-untamed-wilderness/hero.jpg',
+							'/images/patagonia-snow-capped-peaks-glaciers-and-untamed-wilderness/hero.jpg',
 					},
 				},
 			},
