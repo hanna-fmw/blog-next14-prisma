@@ -16,7 +16,7 @@ async function main() {
 	//Create users
 	await prisma.user.create({
 		data: {
-			name: 'Sophie',
+			name: 'Sophie Eliasson',
 			email: 'sophie@gmail.com',
 			posts: {
 				create: {
@@ -35,7 +35,7 @@ async function main() {
 	})
 	await prisma.user.create({
 		data: {
-			name: 'Mimmi',
+			name: 'Mimmi Vikström',
 			email: 'mimmi@gmail.com',
 			posts: {
 				create: {
@@ -53,7 +53,7 @@ async function main() {
 	}),
 		await prisma.user.create({
 			data: {
-				name: 'Robin',
+				name: 'Robin Johansson',
 				email: 'robin@gmail.com',
 				posts: {
 					create: {
@@ -71,7 +71,7 @@ async function main() {
 		}),
 		await prisma.user.create({
 			data: {
-				name: 'Emma',
+				name: 'Emma Lilja',
 				email: 'emma@gmail.com',
 				posts: {
 					create: {
@@ -89,7 +89,7 @@ async function main() {
 		}),
 		await prisma.user.create({
 			data: {
-				name: 'Linnea',
+				name: 'Linnea Ljungholm',
 				email: 'linnea@gmail.com',
 				posts: {
 					create: {
@@ -107,7 +107,7 @@ async function main() {
 		}),
 		await prisma.user.create({
 			data: {
-				name: 'Julien',
+				name: 'Julien Dupont',
 				email: 'julien@gmail.com',
 				posts: {
 					create: {
@@ -125,7 +125,7 @@ async function main() {
 		}),
 		await prisma.user.create({
 			data: {
-				name: 'Carlos',
+				name: 'Carlos García',
 				email: 'carlos@gmail.com',
 				posts: {
 					create: {
@@ -144,7 +144,7 @@ async function main() {
 		}),
 		await prisma.user.create({
 			data: {
-				name: 'Elena',
+				name: 'Elena Rodríguez',
 				email: 'elena@example.com',
 				posts: {
 					create: {
@@ -155,8 +155,7 @@ async function main() {
 						content:
 							"Patagonia, spanning across Chile and Argentina, offers a breathtaking winter wonderland. Explore snow-capped peaks of the Andes Mountains, home to towering glaciers such as Perito Moreno and Grey. Trek through pristine national parks like Torres del Paine and Los Glaciares, marveling at turquoise lakes and jagged peaks. Discover unique wildlife, including guanacos, pumas, and Andean condors, in their natural habitat. Experience thrilling outdoor activities like hiking, skiing, and ice climbing amidst Patagonia's untamed wilderness. Immerse yourself in local culture, enjoying traditional cuisine and hospitality in charming towns like El Calafate and Puerto Natales. Patagonia's blend of snow-capped peaks, glaciers, and untamed wilderness promises an unforgettable adventure.",
 						tags: ['nature', 'adventure'],
-						image:
-							'/images/patagonia-snow-capped-peaks-glaciers-and-untamed-wilderness/hero.jpg',
+						image: '/images/patagonia-snow-capped-peaks-glaciers-and-untamed-wilderness/hero.jpg',
 					},
 				},
 			},
