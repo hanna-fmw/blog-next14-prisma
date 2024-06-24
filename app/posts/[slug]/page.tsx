@@ -26,7 +26,7 @@ export default async function PostPage({ params: { slug } }: Props) {
 
 	// Filter posts with same tag
 	const filteredSameTag = allPosts.filter((singlePost) =>
-		singlePost.tags.some((tag) => Array.isArray(post) && post.tags.includes(tag))
+		singlePost.tags.some((tag) => post?.tags.includes(tag))
 	)
 
 	const month = post && post.date.getMonth() + 1
