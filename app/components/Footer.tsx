@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Footer = () => {
@@ -7,24 +8,24 @@ const Footer = () => {
 				<div className='mx-auto'>
 					<h2 className='text-[14px] mb-2 md:text-2xl'>Contact</h2>
 					<ul>
-						<li>info@blog.com</li>
+						<li className='cursor-pointer'>info@blog.com</li>
 						<li>+944 450 904 505</li>
 					</ul>
 				</div>
 				<div className='mx-auto'>
 					<h2 className='text-[14px] mb-2 md:text-2xl'>Legal</h2>
-					<ul>
-						<li>Terms</li>
-						<li>Privacy</li>
-					</ul>
+					<div className='flex flex-col gap-2'>
+						<Link href='/'>Terms</Link>
+						<Link href='/'>Privcy</Link>
+					</div>
 				</div>
 				<div className='mx-auto'>
 					<h2 className='text-[14px] mb-2 md:text-2xl'>Connect</h2>
-					<ul>
-						<li>Facebook</li>
-						<li>Twitter</li>
-						<li>Instagram</li>
-					</ul>
+					<div className='flex flex-col gap-2'>
+						<Link href='/'>Facebook</Link>
+						<Link href='/'>Twitter</Link>
+						<Link href='/'>Instagram</Link>
+					</div>
 				</div>
 			</section>
 		</footer>
