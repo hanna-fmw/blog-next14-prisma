@@ -1,8 +1,6 @@
-import Image from 'next/image'
 import HeroContent from '../components/HeroContent'
 import Navbar from '../components/Navbar'
 import PostCard from '../components/PostCard'
-import Footer from '../components/Footer'
 import prisma from '@/lib/db'
 import Link from 'next/link'
 
@@ -13,22 +11,11 @@ type Props = {
 const availableTags = ['nature', 'adventure', 'beach', 'city', 'culture']
 
 const PostsPage = async ({ searchParams: { tagFilter } }: Props) => {
-	console.log('these are searchParams', tagFilter)
 	const posts = await prisma.post.findMany({
 		include: { author: true }, //include author to access User model
 	})
 
 	const postCount = await prisma.post.count()
-
-	// console.log('tagFilter:', tagFilter)
-	// console.log(
-	// 	'tags of all posts:',
-	// 	posts.map((post) => post.tags)
-	// )
-	// console.log(
-	// 	'type of tags:',
-	// 	posts.map((post) => typeof post.tags)
-	// )
 
 	const filteredPosts = tagFilter ? posts.filter((post) => post.tags.includes(tagFilter)) : posts
 
@@ -39,10 +26,14 @@ const PostsPage = async ({ searchParams: { tagFilter } }: Props) => {
 				<HeroContent
 					postTitle='Richird Norton photorealistic rendering as real photos.'
 					subheading='Progressively incentivize cooperative systems through technically sound functionalities. The credibly productivate seamless data.'
+					contentClassName='bottom-[10%] w-1/2 md:w-1/2 lg:w-1/3 px-[20px] md:px-[70px]'
+					titleClassName='text-2xl md:text-4xl my-6 mb-2'
+					textClassName='font-bold text-sm md:text-base'
+					subheadingClassName='text-sm md:text-base'
 				/>
 			</section>
 
-			<section className='w-screen px-[20px] md:px-[70px]'>
+			<section className='w-screen my-16 px-[20px] md:px-[70px]'>
 				<h1 className='text-xl md:text-2xl mt-12 md:mt-18 font-lora'>Posts ({postCount})</h1>
 				<div>
 					<Link
@@ -65,7 +56,6 @@ const PostsPage = async ({ searchParams: { tagFilter } }: Props) => {
 					))}
 				</div>
 			</section>
-			<Footer />
 		</main>
 	)
 }
