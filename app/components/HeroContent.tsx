@@ -12,7 +12,7 @@ type Props = {
 	subheadingClassName?: string
 	showTag?: boolean
 }
-// <div className='absolute bottom-[10%] w-1/2 md:w-1/2 lg:w-1/3 px-[20px] md:px-[70px]'>
+
 const HeroContent = ({
 	postTitle,
 	subheading,
