@@ -19,6 +19,7 @@ model Post {
   slug      String  @unique  
   subheading String
   content   String
+  quote     String?
   tags      String[]
   published Boolean  @default(false)
   date      DateTime @default(now())
