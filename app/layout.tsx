@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Roboto, Lora, League_Spartan } from 'next/font/google'
 import './globals.css'
+import Footer from './components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -31,6 +32,7 @@ export default function RootLayout({
 		<html lang='en'>
 			<body className={`${roboto.variable} ${lora.variable} ${leage_spartan.variable}`}>
 				{children}
+				<Footer />
 			</body>
 		</html>
 	)
