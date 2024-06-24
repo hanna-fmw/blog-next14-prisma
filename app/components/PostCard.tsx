@@ -30,7 +30,7 @@ const PostCard = ({ post }: Post) => {
 			<section className='cursor-pointer'>
 				<div className='mt-8'>
 					<div className='relative'>
-						<div className='absolute top-4 right-2'>
+						<div className='overflow-hidden absolute top-4 right-2'>
 							{post.tags.map((tag: string, i) => {
 								return <Tag key={i} tag={tag} />
 							})}

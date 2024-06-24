@@ -25,9 +25,11 @@ const HeroContent = ({
 	showTag = true,
 }: Props) => {
 	return (
-		<div className={`absolute ${contentClassName}`}>
+		<div className={`overflow-hidden absolute ${contentClassName}`}>
 			{showTag && <Tag tag={tag} />}
-			<h1 className={`font-lora text-hero-content-color ${titleClassName}`}>{postTitle}</h1>
+			<h1 className={`overflow-hidden font-lora text-hero-content-color ${titleClassName}`}>
+				{postTitle}
+			</h1>
 			<p className={`font-lora mt-3 text-hero-content-color ${subheadingClassName}`}>
 				{subheading}
 			</p>

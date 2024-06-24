@@ -21,7 +21,7 @@ const PostsPage = async ({ searchParams: { tagFilter } }: Props) => {
 
 	return (
 		<main>
-			<section className='w-screen min-w-full h-[65vh] md:h-[70vh] bg-hero-bg bg-center object-cover relative'>
+			<section className='w-screen min-w-full h-[65vh] md:h-[70vh] overflow-hidden bg-hero-bg bg-center object-cover relative'>
 				<Navbar />
 				<HeroContent
 					postTitle='Richird Norton photorealistic rendering as real photos.'
