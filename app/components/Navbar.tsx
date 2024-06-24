@@ -32,19 +32,13 @@ const Navbar = () => {
 					className='text-sm md:text-[12px] text-navbar-link-color hover:text-navbar-link-hover-color text-[12px]'>
 					Contact
 				</Link>
-				<Link
-					href='/'
-					className='w-[10px] h-[10px] sm:w-[14px] sm:h-[14px] md:w-[16px] md:h-[16px] text-navbar-link-color hover:text-navbar-link-hover-color'>
+				<Link href='/' className='text-navbar-link-color hover:text-navbar-link-hover-color'>
 					<SlSocialFacebook size={15} />
 				</Link>
-				<Link
-					href='/'
-					className='w-[10px] h-[10px] sm:w-[14px] sm:h-[14px] md:w-[16px] md:h-[16px] text-navbar-link-color hover:text-navbar-link-hover-color'>
+				<Link href='/' className='text-navbar-link-color hover:text-navbar-link-hover-color'>
 					<SlSocialTwitter size={15} />
 				</Link>
-				<Link
-					href='/'
-					className='w-[10px] h-[10px] sm:w-[14px] sm:h-[14px] md:w-[16px] md:h-[16px] text-navbar-link-color hover:text-navbar-link-hover-color'>
+				<Link href='/' className='text-navbar-link-color hover:text-navbar-link-hover-color'>
 					<SlSocialYoutube size={15} />
 				</Link>
 			</nav>
