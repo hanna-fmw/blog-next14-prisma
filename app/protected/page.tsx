@@ -13,7 +13,7 @@
 //   return <p>Hello {data.user.email}</p>
 // }
 
-import AuthButton from '../components/AuthButton'
+import LoginButton from '../components/LoginButton'
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 
@@ -25,7 +25,7 @@ export default async function ProtectedPage() {
 	} = await supabase.auth.getUser()
 
 	if (!user) {
-		return redirect('/login')
+		return redirect('/')
 	}
 
 	return (
@@ -36,7 +36,7 @@ export default async function ProtectedPage() {
 				</div>
 				<nav className='w-full flex justify-end  border-b border-b-foreground/10 h-16'>
 					<div className='w-full max-w-4xl flex justify-between items-end p-3 text-sm'>
-						<AuthButton />
+						<LoginButton />
 					</div>
 				</nav>
 			</div>
