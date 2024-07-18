@@ -1,3 +1,4 @@
+import Footer from '../components/Footer'
 import HeroContent from '../components/HeroContent'
 import Navbar from '../components/Navbar'
 import PostCard from '../components/PostCard'
@@ -55,6 +56,9 @@ const PostsPage = async ({ searchParams: { tagFilter } }: Props) => {
 						<PostCard key={post.id} post={post} />
 					))}
 				</div>
+			</section>
+			<section>
+				<Footer />
 			</section>
 		</main>
 	)

@@ -5,6 +5,7 @@ import HeroContent from '@/app/components/HeroContent'
 import { IoMdContact } from 'react-icons/io'
 
 import { calculateReadingTime } from '@/utils/readingTime'
+import Footer from '@/app/components/Footer'
 
 type Props = {
 	params: {
@@ -25,9 +26,9 @@ export default async function PostPage({ params: { slug } }: Props) {
 	})
 
 	// Filter posts with same tag
-	const filteredSameTag = allPosts.filter((singlePost) =>
-		singlePost.id !== post?.id &&
-		singlePost.tags.some((tag) => post?.tags.includes(tag))
+	const filteredSameTag = allPosts.filter(
+		(singlePost) =>
+			singlePost.id !== post?.id && singlePost.tags.some((tag) => post?.tags.includes(tag))
 	)
 
 	const month = post && post.date.getMonth() + 1
@@ -133,6 +134,9 @@ export default async function PostPage({ params: { slug } }: Props) {
 						))}
 					</div>
 				</section>
+			</section>
+			<section>
+				<Footer />
 			</section>
 		</main>
 	)

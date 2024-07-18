@@ -4,6 +4,7 @@ import { SlSocialTwitter } from 'react-icons/sl'
 import { SlSocialFacebook } from 'react-icons/sl'
 import { SlSocialYoutube } from 'react-icons/sl'
 import { IoMdGlobe } from 'react-icons/io'
+import AuthButton from './AuthButton'
 
 const Navbar = () => {
 	return (
@@ -41,6 +42,7 @@ const Navbar = () => {
 				<Link href='/' className='text-navbar-link-color hover:text-navbar-link-hover-color'>
 					<SlSocialYoutube size={15} />
 				</Link>
+				<AuthButton />
 			</nav>
 		</div>
 	)
