@@ -4,7 +4,7 @@ import { SlSocialTwitter } from 'react-icons/sl'
 import { SlSocialFacebook } from 'react-icons/sl'
 import { SlSocialYoutube } from 'react-icons/sl'
 import { IoMdGlobe } from 'react-icons/io'
-import LoginButton from './LoginButton'
+import AuthButton from './AuthButton'
 import SignupButton from './SignupButton'
 
 const Navbar = () => {
@@ -44,7 +44,7 @@ const Navbar = () => {
 					<SlSocialYoutube size={15} />
 				</Link>
 				<SignupButton />
-				<LoginButton />
+				<AuthButton />
 			</nav>
 		</div>
 	)

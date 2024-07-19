@@ -9,11 +9,14 @@ import { Label } from './ui/label'
 import Login from '../login/Login'
 import { login, signup } from '../login/actions'
 
-export default async function LoginButton() {
+export default async function AuthButton() {
 	const supabase = createClient()
 
 	const {
 		data: { user },
+
+
+		
 	} = await supabase.auth.getUser()
 
 	const signOut = async () => {
