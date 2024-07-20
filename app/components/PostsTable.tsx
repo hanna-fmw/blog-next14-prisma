@@ -23,14 +23,14 @@ const PostsTable = ({ posts }: any) => {
 	}
 
 	return (
-		<Table className='px-10'>
+		<Table className='mx-auto'>
 			<TableHeader>
 				<TableRow>
 					<TableHead>Title</TableHead>
 					<TableHead>Subheading</TableHead>
 					<TableHead>Content</TableHead>
 					<TableHead>Author</TableHead>
-					<TableHead className='w-[100px]'>Actions</TableHead>
+					<TableHead>Actions</TableHead>
 				</TableRow>
 			</TableHeader>
 			<TableBody>
