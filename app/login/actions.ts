@@ -24,7 +24,7 @@ export async function login(formData: FormData) {
 	}
 
 	revalidatePath('/', 'layout')
-	redirect('/protected')
+	redirect('/admin')
 }
 
 export async function signup(formData: FormData) {
@@ -66,7 +66,7 @@ export async function signup(formData: FormData) {
 		},
 	})
 
-	// Step 3 (redirect): Redirect the user to the protected page if the sign up was successful
+	// Step 3 (redirect): Redirect the user to the admin page if the sign up was successful
 	revalidatePath('/', 'layout')
-	redirect('/protected')
+	redirect('/admin')
 }

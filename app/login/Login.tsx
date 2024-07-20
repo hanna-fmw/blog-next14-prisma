@@ -16,7 +16,7 @@ export default async function Login() {
 	} = await supabase.auth.getUser()
 
 	if (user) {
-		return redirect('/protected')
+		return redirect('/admin')
 	}
 
 	return (

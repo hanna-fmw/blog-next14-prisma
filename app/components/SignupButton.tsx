@@ -6,6 +6,7 @@ import { Popover, PopoverContent, PopoverTrigger } from './ui/popover'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 import { Label } from './ui/label'
+import Link from 'next/link'
 
 export default async function SignupButton() {
 	const supabase = createClient()
@@ -24,10 +25,9 @@ export default async function SignupButton() {
 
 	return user ? (
 		<div className='flex items-center gap-4'>
-			{/* Hey, {user.email}! */}
-			<form action={signOut}>
-				<Button>Logout</Button>
-			</form>
+			<Button>
+				<Link href='/admin'>Admin</Link>
+			</Button>
 		</div>
 	) : (
 		<Popover>
