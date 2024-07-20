@@ -14,9 +14,6 @@ export default async function AuthButton() {
 
 	const {
 		data: { user },
-
-
-		
 	} = await supabase.auth.getUser()
 
 	const signOut = async () => {
@@ -29,7 +26,7 @@ export default async function AuthButton() {
 
 	return user ? (
 		<div className='flex items-center gap-4'>
-			Hey, {user.email}!
+			{/* Hey, {user.email}! */}
 			<form action={signOut}>
 				<Button>Logout</Button>
 			</form>
@@ -39,7 +36,7 @@ export default async function AuthButton() {
 			<PopoverTrigger asChild>
 				<Button variant='outline'>Login</Button>
 			</PopoverTrigger>
-		
+
 			<PopoverContent className='w-80 flex flex-col gap-4'>
 				<h4 className='font-medium'>Login</h4>
 				<p className='text-sm text-muted-foreground'>

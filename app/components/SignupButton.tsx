@@ -1,19 +1,17 @@
 import { createClient } from '@/utils/supabase/server'
-import Link from 'next/link'
 import { redirect } from 'next/navigation'
-// import Button from './Button'
+import { signup } from '../login/actions'
+
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 import { Label } from './ui/label'
-import Login from '../login/Login'
-import { login, signup } from '../login/actions'
 
 export default async function SignupButton() {
 	const supabase = createClient()
 
 	const {
-		data: { user },
+		data: { user }, //All info om en user (en rad) under Authentication i Supabase
 	} = await supabase.auth.getUser()
 
 	const signOut = async () => {
@@ -26,7 +24,7 @@ export default async function SignupButton() {
 
 	return user ? (
 		<div className='flex items-center gap-4'>
-			Hey, {user.email}!
+			{/* Hey, {user.email}! */}
 			<form action={signOut}>
 				<Button>Logout</Button>
 			</form>
@@ -44,7 +42,7 @@ export default async function SignupButton() {
 				</p>
 				<form id='login-form' className='grid gap-4'>
 					<div className='grid gap-2'>
-						<Label htmlFor='email'>Email</Label>
+						<Label htmlFor='username'>Name</Label>
 						<Input id='username' name='username' type='text' placeholder='Jane Doe' required />
 					</div>
 					<div className='grid gap-2'>

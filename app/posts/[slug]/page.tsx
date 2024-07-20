@@ -69,13 +69,15 @@ export default async function PostPage({ params: { slug } }: Props) {
 				<div>
 					{(() => {
 						// Split content into paragraphs and insert quote after second paragraph
-						const paragraphs = post?.content.split('\n')
+						// const paragraphs = post?.content.split('\n')
+						const paragraphs = post?.content.includes('\n') ? post?.content.split('\n') : [post?.content]
+
 						const quote = post?.quote ? post.quote : ''
 						if (paragraphs && paragraphs.length > 1) {
 							paragraphs.splice(2, 0, quote)
 						}
 
-						// Add curly quotes to quote
+						// Add curly braces to quote
 						return paragraphs?.map((paragraph, i) => {
 							const isQuote = paragraph === quote
 							const formattedQuote = isQuote ? `“${quote}”` : ''
