@@ -10,14 +10,34 @@ import Link from 'next/link'
 import PostsTable from '../components/PostsTable'
 
 export default async function ProtectedPage() {
+	
 	const userSelectedImages = [
-		'/images/fallback_travel.jpg',
-		'/images/userSelectedImages/nature.jpg',
-		'/images/userSelectedImages/adventure.jpg',
-		'/images/userSelectedImages/beach.jpg',
-		'/images/userSelectedImages/city.jpg',
-		'/images/userSelectedImages/culture.jpg',
+		{
+			imageURL: '/images/fallback_travel.jpg',
+			imageName: 'Default',
+		},
+		{
+			imageURL: '/images/userSelectedImages/nature.jpg',
+			imageName: 'Nature',
+		},
+		{
+			imageURL: '/images/userSelectedImages/adventure.jpg',
+			imageName: 'Adventure',
+		},
+		{
+			imageURL: '/images/userSelectedImages/beach.jpg',
+			imageName: 'Beach',
+		},
+		{
+			imageURL: '/images/userSelectedImages/city.jpg',
+			imageName: 'City',
+		},
+		{
+			imageURL: '/images/userSelectedImages/culture.jpg',
+			imageName: 'Culture',
+		},
 	]
+
 	const supabase = createClient()
 
 	const {
@@ -86,7 +106,10 @@ export default async function ProtectedPage() {
 			<section className='mt-8 text-center'>
 				{/* <h2>Hey, {user.email}!</h2> */}
 				<h2>Hi {posts.length > 0 ? posts[0].author.name : 'there'}!</h2>
-				<p>Create a new post using the form, or manage existing posts below the form.</p>
+				<p>
+					Create a new post using the form,{' '}
+					<span className='font-bold'>or manage existing posts below</span> the form.
+				</p>
 			</section>
 
 			<section className='w-[40vw] rounded-md mx-auto p-4 border border-1 border-black my-6'>
@@ -148,14 +171,14 @@ export default async function ProtectedPage() {
 						<Input id='img' name='img' type='text' placeholder='Add an image' />
 					</div> */}
 					<div>
-						<select id='img' name='img'>
+						<select id='img' name='img' className='cursor-pointer'>
 							<option value='' disabled>
 								Select an image
 							</option>
 							{userSelectedImages.map((image, i) => {
 								return (
-									<option key={i} value={image}>
-										{image}
+									<option key={i} value={image.imageURL}>
+										{image.imageName}
 									</option>
 								)
 							})}
