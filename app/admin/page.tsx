@@ -10,7 +10,6 @@ import Link from 'next/link'
 import PostsTable from '../components/PostsTable'
 
 export default async function ProtectedPage() {
-	
 	const userSelectedImages = [
 		{
 			imageURL: '/images/fallback_travel.jpg',
@@ -134,15 +133,14 @@ export default async function ProtectedPage() {
 							required
 						/>
 					</div>
-
 					<div className='grid gap-2'>
 						<Label htmlFor='content'>Content</Label>
-						<Input
+						<textarea
 							id='content'
 							name='content'
-							type='text'
-							placeholder='Write your post content here'
+							placeholder='Enter your post text here'
 							required
+							className='w-full h-32 p-2 border border-1 border-black'
 						/>
 					</div>
 
