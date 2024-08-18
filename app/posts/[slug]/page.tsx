@@ -67,29 +67,13 @@ export default async function PostPage({ params: { slug } }: Props) {
 					<span>{readingTime}&nbsp;min</span>
 				</div>
 				<div>
-					{(() => {
-						// Split content into paragraphs and insert quote after second paragraph
-						// const paragraphs = post?.content.split('\n')
-						const paragraphs = post?.content.includes('\n') ? post?.content.split('\n') : [post?.content]
-
-						const quote = post?.quote ? post.quote : ''
-						if (paragraphs && paragraphs.length > 1) {
-							paragraphs.splice(2, 0, quote)
-						}
-
-						// Add curly braces to quote
-						return paragraphs?.map((paragraph, i) => {
-							const isQuote = paragraph === quote
-							const formattedQuote = isQuote ? `“${quote}”` : ''
-							return (
-								<p
-									key={i}
-									className={`font-lora ${isQuote ? 'text-quote-color mt-12 mb-12 font-bold text-3xl md:text-[30px] leading-tight' : 'text-lg my-4'} `}>
-									{formattedQuote || paragraph}
-								</p>
-							)
-						})
-					})()}
+					<div>
+						{post?.quote && (
+							<p className='text-quote-color mt-12 mb-12 font-bold text-3xl md:text-[30px] leading-tight'>{`“${post?.quote}”`}</p>
+						)}
+					</div>
+					{/* whiteSpace: 'pre-line' will make sure that return characters (in user input - textfield tag - in form) are rendered as new lines */}
+					<div style={{ whiteSpace: 'pre-line' }}>{post?.content}</div>
 				</div>
 				<div className='border border-horizontal-line-color w-full my-16 md:my-24'></div>
 				<div className='flex items-center gap-3 pb-12 md:pb-16'>
