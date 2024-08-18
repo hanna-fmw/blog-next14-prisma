@@ -26,6 +26,8 @@ export const createPost = async (formData: FormData) => {
 			quote: formData.get('quote') as string,
 			// tags is an array of strings, so we split the string by comma to get an array of tags and then trim each tag
 			tags: (formData.get('tags') as string)?.split(',').map((tag) => tag.trim()) || [],
+			// image below is from name="img" from the <select> in the form in admin/page.tsx,
+			// where we have the userSelectedImages array of URLs to images in public/images/userSelectedImages
 			image: formData.get('img') as string,
 			authorId: user?.id,
 		},

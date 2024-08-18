@@ -36,7 +36,7 @@ const PostCard = ({ post }: Post) => {
 							})}
 						</div>
 						<Image
-							src={post.image}
+							src={post.image ? post.image : '/images/fallback_travel.jpg'}
 							alt='Post Image'
 							width={250}
 							height={200}

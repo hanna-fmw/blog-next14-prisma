@@ -4,13 +4,20 @@ import { redirect } from 'next/navigation'
 import prisma from '@/lib/db'
 import { createPost } from '../actions'
 import { Button } from '../components/ui/button'
-
 import { Input } from '../components/ui/input'
 import { Label } from '@radix-ui/react-label'
 import Link from 'next/link'
 import PostsTable from '../components/PostsTable'
 
 export default async function ProtectedPage() {
+	const userSelectedImages = [
+		'/images/fallback_travel.jpg',
+		'/images/userSelectedImages/nature.jpg',
+		'/images/userSelectedImages/adventure.jpg',
+		'/images/userSelectedImages/beach.jpg',
+		'/images/userSelectedImages/city.jpg',
+		'/images/userSelectedImages/culture.jpg',
+	]
 	const supabase = createClient()
 
 	const {
@@ -21,7 +28,8 @@ export default async function ProtectedPage() {
 		return redirect('/')
 	}
 
-	// const createPost = async (formData: FormData) => {
+	// I later moved the below createPost function to actions.ts
+	//const createPost = async (formData: FormData) => {
 	// 	'use server'
 
 	// 	// Create a new post
@@ -131,14 +139,29 @@ export default async function ProtectedPage() {
 							id='tags'
 							name='tags'
 							type='text'
-							placeholder='Choose one or more available tags, separeted by comma'
+							placeholder='Enter one or more available tags (nature, adventure, beach, city and/or culture), separeted by comma'
 						/>
 					</div>
 
-					<div className='grid gap-2'>
+					{/* <div className='grid gap-2'>
 						<Label htmlFor='img'>Image</Label>
 						<Input id='img' name='img' type='text' placeholder='Add an image' />
+					</div> */}
+					<div>
+						<select id='img' name='img'>
+							<option value='' disabled>
+								Select an image
+							</option>
+							{userSelectedImages.map((image, i) => {
+								return (
+									<option key={i} value={image}>
+										{image}
+									</option>
+								)
+							})}
+						</select>
 					</div>
+					{/* formAction grabs the name attribute values of the <input> and <select> elements and sends them to the createPost function */}
 
 					<Button formAction={createPost} className='w-full mt-8'>
 						Create Post
