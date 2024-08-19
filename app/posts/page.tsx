@@ -13,7 +13,7 @@ const availableTags = ['nature', 'adventure', 'beach', 'city', 'culture']
 
 const PostsPage = async ({ searchParams: { tagFilter } }: Props) => {
 	const posts = await prisma.post.findMany({
-		include: { author: true }, //include author to access User model
+		include: { author: true },
 	})
 
 	const postCount = await prisma.post.count()

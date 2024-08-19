@@ -1,12 +1,9 @@
 import { createClient } from '@/utils/supabase/server'
-import Link from 'next/link'
 import { redirect } from 'next/navigation'
-// import Button from './Button'
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 import { Label } from './ui/label'
-import Login from '../login/Login'
 import { login, signup } from '../login/actions'
 
 export default async function AuthButton() {
@@ -26,7 +23,6 @@ export default async function AuthButton() {
 
 	return user ? (
 		<div className='flex items-center gap-4'>
-			{/* Hey, {user.email}! */}
 			<form action={signOut}>
 				<Button>Logout</Button>
 			</form>
@@ -53,25 +49,11 @@ export default async function AuthButton() {
 						</div>
 						<Input minLength={6} name='password' id='password' type='password' required />
 					</div>
-					{/* {searchParams.message && (
-							<div className='text-sm font-medium text-destructive'>{searchParams.message}</div>
-						)} */}
 					<Button formAction={login} className='w-full'>
 						Login
 					</Button>
 				</form>
-				{/* <OAuthButtons /> */}
-				{/* <div className='text-center text-sm'>
-					Don&apos;t have an account?{' '}
-					<button formAction={signup} form='login-form' className='underline'>
-						Sign up
-					</button>
-				</div> */}
 			</PopoverContent>
 		</Popover>
-
-		// <Link href='/login'>
-		// 	<Button>Login</Button>
-		// </Link>
 	)
 }

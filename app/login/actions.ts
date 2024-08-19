@@ -9,8 +9,6 @@ import prisma from '@/lib/db'
 export async function login(formData: FormData) {
 	const supabase = createClient()
 
-	// type-casting here for convenience
-	// in practice, you should validate your inputs
 	const data = {
 		name: formData.get('username') as string,
 		email: formData.get('email') as string,
@@ -30,8 +28,7 @@ export async function login(formData: FormData) {
 export async function signup(formData: FormData) {
 	const supabase = createClient()
 
-	// Step 1 (authentication): Sign up the user
-	// Pass the email and password (as data) to the Supabase auth API (auth.signUp) (this is Authentication)
+	// Sign up the user
 	const data = {
 		email: formData.get('email') as string,
 		password: formData.get('password') as string,
@@ -43,30 +40,24 @@ export async function signup(formData: FormData) {
 		redirect('/error')
 	}
 
-	// Step 2 (database): Create a new user in the database
-	// Create a new user in the database with a) the user's email from Step 1 (authentication) and b) the name from the sign up form
-	// We need supabase.auth.getUser() to get the user's email from the authentication step (we get data from the auth API and we
-	// desctructure the user object from the data object, i.e. data: { user })
-
+	// Create new user in db
 	const {
 		data: { user },
 	} = await supabase.auth.getUser()
 
 	if (!user || !user.email) {
-		// Handle the case where user or user.email is undefined
-		// For example, throw an error or redirect the user
 		throw new Error('User email is undefined')
 	}
 
 	await prisma.user.create({
 		data: {
 			name: formData.get('username') as string,
-			email: user?.email, // Use the email of the registered/logged-in user
-			id: user?.id, //Testar att använda auth-id:t som skapas i Supabase i Step 1 (auth) som id i databasen
+			email: user?.email,
+			id: user?.id,
 		},
 	})
 
-	// Step 3 (redirect): Redirect the user to the admin page if the sign up was successful
+	// Redirect to the admin page if the sign up was successful
 	revalidatePath('/', 'layout')
 	redirect('/admin')
 }

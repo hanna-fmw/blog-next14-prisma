@@ -47,44 +47,10 @@ export default async function ProtectedPage() {
 		return redirect('/')
 	}
 
-	// I later moved the below createPost function to actions.ts
-	//const createPost = async (formData: FormData) => {
-	// 	'use server'
-
-	// 	// Create a new post
-	// 	await prisma.post.create({
-	// 		data: {
-	// 			title: formData.get('title') as string,
-	// 			slug: formData.get('slug') as string,
-	// 			subheading: formData.get('subheading') as string,
-	// 			content: formData.get('content') as string,
-	// 			quote: formData.get('quote') as string,
-	// 			// tags is an array of strings, so we split the string by comma to get an array of tags and then trim each tag
-	// 			tags: (formData.get('tags') as string)?.split(',').map((tag) => tag.trim()) || [],
-	// 			image: formData.get('img') as string,
-	// 			authorId: user?.id,
-	// 		},
-	// 	})
-
-	// 	return redirect('/')
-	// }
-
-	// Get all posts created by the logged-in user and include the author to also get the user's name
 	const posts = await prisma.post.findMany({
-		include: { author: true }, //include author to access User model (where we have the user's name, which we don´t get from Supabase auth.getUser() (we only get the email from that)
-		where: { author: { email: user.email } }, //only show posts created by the logged in user, user.email is from Supabase (supabase.auth.getUser() ovan)
+		include: { author: true },
+		where: { author: { email: user.email } },
 	})
-
-	// // Delete a post by its slug
-	// const deletePost = async (slug: string) => {
-	// 	'use server'
-	// 	// Instead of hardcoding as in await prisma.post.delete({ where: { slug: 'paris-forever' } }),
-	// 	// we will ensure the correct post is deleted (i.e., the one the user clicks on) by passing in
-	// 	// the slug of the clicked post as a parameter to the deletePost function.
-	// 	await prisma.post.delete({ where: { slug: slug } })
-
-	// 	return redirect('/')
-	// }
 
 	return (
 		<main className='w-screen'>
@@ -93,7 +59,6 @@ export default async function ProtectedPage() {
 
 				<div className=' flex justify-end gap-10 pr-16'>
 					<div>
-						{/* This is both the Logout and Login button */}
 						<AuthButton />
 					</div>
 					<Button>
@@ -103,7 +68,6 @@ export default async function ProtectedPage() {
 			</div>
 
 			<section className='mt-8 text-center'>
-				{/* <h2>Hey, {user.email}!</h2> */}
 				<h2>Hi {posts.length > 0 ? posts[0].author.name : 'there'}!</h2>
 				<p>
 					Create a new post using the form,{' '}
@@ -164,10 +128,6 @@ export default async function ProtectedPage() {
 						/>
 					</div>
 
-					{/* <div className='grid gap-2'>
-						<Label htmlFor='img'>Image</Label>
-						<Input id='img' name='img' type='text' placeholder='Add an image' />
-					</div> */}
 					<div>
 						<select id='img' name='img' className='cursor-pointer'>
 							<option value='' disabled>
@@ -182,7 +142,6 @@ export default async function ProtectedPage() {
 							})}
 						</select>
 					</div>
-					{/* formAction grabs the name attribute values of the <input> and <select> elements and sends them to the createPost function */}
 
 					<Button formAction={createPost} className='w-full mt-8'>
 						Create Post

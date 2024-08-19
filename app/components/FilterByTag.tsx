@@ -8,7 +8,7 @@ type Props = {
 const FilterByTag = async ({ tagFilter }: Props) => {
 	const [isFiltered, setIsFiltered] = React.useState(false)
 	const postsFilteredByTag: any = await prisma.post.findMany({
-		include: { author: true }, //include author to access User model
+		include: { author: true }, 
 		where: { tags: { hasSome: ['usa'] } },
 	})
 	return (

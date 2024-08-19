@@ -1,19 +1,19 @@
-//run this seed script with npx prisma db seed
+// Run seed script with npx prisma db seed
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 async function main() {
-	//Delete all posts
+	// Delete all posts
 	await prisma.post.deleteMany()
 	const postCount = await prisma.post.count()
 	console.log(`Number of posts after delete: ${postCount}`)
 
-	//Delete all users
+	// Delete all users
 	await prisma.user.deleteMany()
 	const userCount = await prisma.user.count()
 	console.log(`Number of users after delete: ${userCount}`)
 
-	//Create users
+	// Create users
 	await prisma.user.create({
 		data: {
 			name: 'Sophie Eliasson',

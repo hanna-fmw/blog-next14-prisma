@@ -6,7 +6,6 @@ import { login, signup } from './actions'
 import { redirect } from 'next/navigation'
 import { createClient } from '@/utils/supabase/server'
 import Link from 'next/link'
-// import { OAuthButtons } from './oauth-signin'
 
 export default async function Login() {
 	const supabase = await createClient()
@@ -38,14 +37,10 @@ export default async function Login() {
 							</div>
 							<Input minLength={6} name='password' id='password' type='password' required />
 						</div>
-						{/* {searchParams.message && (
-							<div className='text-sm font-medium text-destructive'>{searchParams.message}</div>
-						)} */}
 						<Button formAction={login} className='w-full'>
 							Login
 						</Button>
 					</form>
-					{/* <OAuthButtons /> */}
 					<div className='text-center text-sm'>
 						Don&apos;t have an account?{' '}
 						<button formAction={signup} form='login-form' className='underline'>
@@ -60,26 +55,3 @@ export default async function Login() {
 		</section>
 	)
 }
-
-// import Link from 'next/link'
-// import Button from '../components/Button'
-// import { login, signup } from './actions'
-
-// export default function LoginPage() {
-// 	return (
-// 		<section className='flex flex-col items-center'>
-// 			<form className='w-[20vw] border border-black rounded-md flex flex-col gap-3 mx-auto my-14 p-4'>
-// 				<label htmlFor='email'>Email:</label>
-// 				<input id='email' name='email' type='email' required />
-// 				<label htmlFor='password'>Password:</label>
-// 				<input id='password' name='password' type='password' required />
-
-// 				<Button formAction={login}>Sign up</Button>
-// 				<Button formAction={signup}>Sign up</Button>
-// 			</form>
-// 			<Button>
-// 				<Link href='/'>Go back home</Link>
-// 			</Button>
-// 		</section>
-// 	)
-// }

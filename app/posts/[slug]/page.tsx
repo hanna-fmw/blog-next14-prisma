@@ -22,7 +22,7 @@ export default async function PostPage({ params: { slug } }: Props) {
 
 	// Fetch all posts
 	const allPosts = await prisma.post.findMany({
-		include: { author: true }, //include author to access User model
+		include: { author: true },
 	})
 
 	// Filter posts with same tag
@@ -72,7 +72,6 @@ export default async function PostPage({ params: { slug } }: Props) {
 							<p className='text-quote-color mt-12 mb-12 font-bold text-3xl md:text-[30px] leading-tight'>{`“${post?.quote}”`}</p>
 						)}
 					</div>
-					{/* whiteSpace: 'pre-line' will make sure that return characters (in user input - textfield tag - in form) are rendered as new lines */}
 					<div style={{ whiteSpace: 'pre-line' }}>{post?.content}</div>
 				</div>
 				<div className='border border-horizontal-line-color w-full my-16 md:my-24'></div>

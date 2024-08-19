@@ -12,7 +12,7 @@ export default async function SignupButton() {
 	const supabase = createClient()
 
 	const {
-		data: { user }, //All info om en user (en rad) under Authentication i Supabase
+		data: { user },
 	} = await supabase.auth.getUser()
 
 	const signOut = async () => {
@@ -55,19 +55,12 @@ export default async function SignupButton() {
 						</div>
 						<Input minLength={6} name='password' id='password' type='password' required />
 					</div>
-					{/* {searchParams.message && (
-							<div className='text-sm font-medium text-destructive'>{searchParams.message}</div>
-						)} */}
+
 					<Button formAction={signup} className='w-full'>
 						Sign up
 					</Button>
 				</form>
-				{/* <OAuthButtons /> */}
 			</PopoverContent>
 		</Popover>
-
-		// <Link href='/login'>
-		// 	<Button>Login</Button>
-		// </Link>
 	)
 }

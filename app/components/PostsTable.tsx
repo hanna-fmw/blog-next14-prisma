@@ -5,16 +5,13 @@ import { Button } from './ui/button'
 import Link from 'next/link'
 
 const PostsTable = ({ posts }: any) => {
-	// Function to create an excerpt from the content
+	// Create excerpt from content and trim it to a maximum length
 	function trimContent(content: string, maxLength: number) {
-		// If the content is shorter than the maxLength, return it as is.
 		if (content.length <= maxLength) return content
 
-		// Find the last space before maxLength to avoid cutting in the middle of a word.
 		let trimmedContent = content.slice(0, maxLength)
 		const lastSpaceIndex = trimmedContent.lastIndexOf(' ')
 
-		// If there's a space, trim up to that space. Otherwise, return the content as is.
 		if (lastSpaceIndex > 0) {
 			trimmedContent = trimmedContent.slice(0, lastSpaceIndex)
 		}
@@ -38,7 +35,6 @@ const PostsTable = ({ posts }: any) => {
 					<TableRow key={post.id}>
 						<TableCell className='font-medium'>{post.title}</TableCell>
 						<TableCell>{post.subheading}</TableCell>
-						{/* <TableCell>{post.content.slice(0, 100)}</TableCell> */}
 						<TableCell>{trimContent(post.content, 100)}</TableCell>
 						<TableCell>{post.author.name}</TableCell>
 
