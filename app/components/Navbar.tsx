@@ -26,21 +26,27 @@ const Navbar = () => {
 				</Link>
 				<Link
 					href='/'
-					className='text-sm md:text-[12px] text-navbar-link-color hover:text-navbar-link-hover-color text-[12px]'>
+					className='text-sm md:text-[12px] text-navbar-link-color hover:text-navbar-link-hover-color text-[12px] cursor-not-allowed'>
 					About
 				</Link>
 				<Link
 					href='/'
-					className='text-sm md:text-[12px] text-navbar-link-color hover:text-navbar-link-hover-color text-[12px]'>
+					className='text-sm md:text-[12px] text-navbar-link-color hover:text-navbar-link-hover-color text-[12px] cursor-not-allowed'>
 					Contact
 				</Link>
-				<Link href='/' className='text-navbar-link-color hover:text-navbar-link-hover-color'>
+				<Link
+					href='/'
+					className='text-navbar-link-color hover:text-navbar-link-hover-color cursor-not-allowed'>
 					<SlSocialFacebook size={15} />
 				</Link>
-				<Link href='/' className='text-navbar-link-color hover:text-navbar-link-hover-color'>
+				<Link
+					href='/'
+					className='text-navbar-link-color hover:text-navbar-link-hover-color cursor-not-allowed'>
 					<SlSocialTwitter size={15} />
 				</Link>
-				<Link href='/' className='text-navbar-link-color hover:text-navbar-link-hover-color'>
+				<Link
+					href='/'
+					className='text-navbar-link-color hover:text-navbar-link-hover-color cursor-not-allowed'>
 					<SlSocialYoutube size={15} />
 				</Link>
 				<SignupButton />
