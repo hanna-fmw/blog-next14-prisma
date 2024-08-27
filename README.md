@@ -34,3 +34,38 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Project Overview
+
+This project is a blog application built with Next.js, Prisma, and Supabase. It features a responsive design, user authentication, and CRUD operations for blog posts.
+
+## Key Features
+
+- User authentication with Supabase
+- Create, read and delete blog posts
+- Responsive design for various screen sizes
+- Tag-based filtering of blog posts
+- Admin dashboard for managing posts
+
+## Technologies Used
+
+- Next.js 14
+- TypeScript
+- Prisma (ORM)
+- Supabase (Authentication and Database)
+- Tailwind CSS
+
+## Documentation
+
+This project uses JSDoc-style comments for code documentation. Some of these comments were generated or enhanced with the assistance of AI tools to ensure comprehensive and consistent documentation across the codebase.
+
+## Installation
+
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Set up your Supabase project and add the necessary environment variables
+4. Run the development server: `npm run dev`
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
