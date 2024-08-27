@@ -3,6 +3,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Tag from './Tag'
 
+/**
+ * Represents the structure of a blog post.
+ */
 type Post = {
 	post: {
 		id: string
@@ -18,12 +21,24 @@ type Post = {
 		image: string
 	}
 }
+
+/**
+ * Represents a user, typically the author of a post.
+ */
 type User = {
 	id: string
 	email: string
 	name: string
 }
 
+/**
+ * PostCard Component
+ * 
+ * Renders a card displaying summary information for a blog post.
+ * 
+ * @param {Post} props - The props object containing the post data.
+ * @returns {JSX.Element} A link wrapping the post card content.
+ */
 const PostCard = ({ post }: Post) => {
 	return (
 		<Link key={post.id} href={`/posts/${post.slug}`}>

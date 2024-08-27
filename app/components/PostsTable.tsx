@@ -5,7 +5,17 @@ import { Button } from './ui/button'
 import Link from 'next/link'
 
 const PostsTable = ({ posts }: any) => {
-	// Create excerpt from content and trim it to a maximum length
+	/**
+	 * Trims the content to a specified maximum length and adds an ellipsis if truncated.
+	 * 
+	 * @param {string} content - The original content to be trimmed.
+	 * @param {number} maxLength - The maximum allowed length of the trimmed content.
+	 * @returns {string} The trimmed content, ending with '...' if truncated.
+	 * 
+	 * @example
+	 * trimContent("This is a long sentence.", 10) // Returns "This is a..."
+	 * trimContent("Short", 10) // Returns "Short"
+	 */
 	function trimContent(content: string, maxLength: number) {
 		if (content.length <= maxLength) return content
 
