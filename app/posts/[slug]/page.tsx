@@ -15,15 +15,32 @@ type Props = {
 
 export default async function PostPage({ params: { slug } }: Props) {
 	// Fetch a single post
-	const post = await prisma.post.findUnique({
-		where: { slug: slug },
-		include: { author: true },
-	})
+	let post
+	try {
+		post = await prisma.post.findUnique({
+			where: { slug: slug },
+			include: { author: true },
+		})
+		if (!post) {
+			throw new Error('Post not found')
+		}
+	} catch (error) {
+		console.error('Error fetching post:', error)
+		return <div>Error: Unable to load post. Please try again later.</div>
+	}
 
 	// Fetch all posts
-	const allPosts = await prisma.post.findMany({
-		include: { author: true },
-	})
+	let allPosts
+	try {
+		allPosts = await prisma.post.findMany({
+			include: { author: true },
+		})
+	} catch (error) {
+		console.error('Error fetching all posts:', error)
+		return (
+			<div>Error: Unable to load related posts. The main post content may still be available.</div>
+		)
+	}
 
 	// Filter posts with same tag
 	const filteredSameTag = allPosts.filter(
